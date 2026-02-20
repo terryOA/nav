@@ -1,46 +1,16 @@
-# Cloudflare Worker配置文件
-name = "bookmark-navigation-worker"
+name = "bookmark-navigation"
 compatibility_date = "2026-02-20"
-main = "worker.js"  # 指定入口文件为worker.js
+main = "worker.js"
+workers_dev = true
 
-# 可选：workers.dev子域名部署
-# workers_dev = true
-
-# 可选：自定义域名路由（二选一）
-# [env.production]
-# route = "your-domain.com/*"  # 替换为您的自定义域名
-
-# D1数据库绑定（根据您的worker.js代码，您可能需要这个）
 [[d1_databases]]
 binding = "NAV_DB"
 database_name = "nav-database"
-database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"  # 替换为实际的数据库ID
+database_id = "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
 
-# KV命名空间绑定（根据您的worker.js代码，您可能需要这个）
 [[kv_namespaces]]
 binding = "NAV_AUTH"
-id = "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"  # 替换为实际的KV命名空间ID
+id = "yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy"
 
-# 环境变量配置
 [vars]
-ENABLE_PUBLIC_SUBMISSION = true
-# 其他环境变量...
-# ADMIN_USERNAME = "admin"
-# ADMIN_PASSWORD = "secure_password"
-
-# 部署配置
-[deployment]
-# 如果您有多个环境，可以这样配置
-[env.staging]
-name = "bookmark-navigation-staging"
-workers_dev = true
-
-[env.production]
-name = "bookmark-navigation"
-route = "your-domain.com/*"  # 替换为您的生产域名
-
-# 构建配置（如果您的项目需要构建步骤）
-[build]
-command = "npm run build"  # 可选的构建命令
-# upload.format = "modules"
-# upload.dir = "./dist"
+ENABLE_PUBLIC_SUBMISSION = "true"
