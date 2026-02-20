@@ -1,4 +1,4 @@
-name = "bookmark-navigation"
+name = "nav2"
 compatibility_date = "2026-02-20"
 main = "worker.js"
 workers_dev = true
@@ -14,5 +14,6 @@ id = "32f4894fa7494017a368222ad8074bbb"
 
 [vars]
 ENABLE_PUBLIC_SUBMISSION = "true"
+
 
 
